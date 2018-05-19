@@ -9,6 +9,17 @@ import Welcome from 'pages/welcome';
 import Repositories from 'pages/repositories';
 import Organizations from 'pages/organizations';
 
+const headerTitle = (state) => {
+  switch (state) {
+    case 0:
+      return 'Repositórios';
+    case 1:
+      return 'Organizações';
+    default:
+      return '';
+  }
+};
+
 const createNavigator = (isLogged = false) =>
   createStackNavigator({
     Welcome: { screen: Welcome },
@@ -31,6 +42,7 @@ const createNavigator = (isLogged = false) =>
   }, {
     initialRouteName: isLogged ? 'User' : 'Welcome',
     navigationOptions: ({ navigation }) => ({
+      title: headerTitle(navigation.state.index),
       headerStyle: {
         paddingHorizontal: metrics.basePadding,
       },

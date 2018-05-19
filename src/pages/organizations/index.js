@@ -15,7 +15,6 @@ import OrganizationItem from './components/OrganizationItem';
 
 export default class Organizations extends Component {
   static navigationOptions = {
-    headertitle: 'Organizações',
     tabBarIcon: ({ tintColor }) => <Icon name="building" size={20} color={tintColor} />,
   };
 
